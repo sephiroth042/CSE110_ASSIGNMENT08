@@ -1,10 +1,8 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.io.FileReader;
-import java.io.IOException;
+
 
 
 // CSE 110     : 74845 / ONLINE
@@ -41,7 +39,7 @@ public class Roster{
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        this.players = rosterPlayers;
+        this.players = new ArrayList<>(rosterPlayers);
     }
 
     public void addPlayer(String playerName, double playerAttackStat, double playerBlockStat){
@@ -55,24 +53,35 @@ public class Roster{
 
     public Player getPlayerByName(String playerName){
         Player namedPlayer = null;
+        int counter = 0;
 
         for(int i = 0; i < players.size(); i++){
             if(players.get(i).getName() == playerName){
                 namedPlayer = players.get(i);
+                counter++;
             }
-            else{
+            else if(counter == 0){
                 namedPlayer = null;
             }
          }
          return namedPlayer;
     }
 
-    public void getTopAttackers(){
-        //print two player objects (in descending order) with best attack stats
+
+    //revisit and apply proper logic
+    public void printTopAttackers(){
+        for(int i = 0; i < 2; i++)
+        {
+            players.get(i).printPlayerInfo();
+        }
     }
 
-    public void getTopBlockers(){
-        //print two player objects (in descending order) with best block stats
+    //revisit and apply proper logic
+    public void printTopBlockers(){
+        for(int i = 0; i < 2; i++)
+        {
+            players.get(i).printPlayerInfo();
+        }
     }
 
     public void printAllPlayers(){

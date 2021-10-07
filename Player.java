@@ -7,7 +7,7 @@ public class Player{
     private String name;
     private double attackStat, blockStat;
 
-    Player(String playerName, double playerAttackStat, double playerBlockStat){
+    public Player(String playerName, double playerAttackStat, double playerBlockStat){
         this.name = playerName;
         this.attackStat = playerAttackStat;
         this.blockStat = playerBlockStat;
@@ -34,6 +34,7 @@ public class Player{
     }
 
     public void printPlayerInfo(){
-        System.out.println(String.format("s% (attack = %d, block = %d)", this.name, this.attackStat, this.blockStat));
+        System.out.println(String.format("%s (attack = %.2f, block = %.2f)", this.name, this.attackStat, this.blockStat));
+        //System.out.println(this.name + "(attack = " + this.attackStat + ", block = " + this.blockStat + ")");
     }
 }
